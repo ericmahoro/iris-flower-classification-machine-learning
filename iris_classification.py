@@ -10,7 +10,8 @@ from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix, classification_report
 from sklearn.metrics import precision_score, recall_score, f1_score
-
+import matplotlib.pyplot as plt
+from sklearn.metrics import ConfusionMatrixDisplay
 
 
 # Load Iris dataset
@@ -256,3 +257,93 @@ for name, prediction in models.items():
     print("Recall:", round(recall, 3))
     print("F1-score:", round(f1, 3))
 
+
+# Model accuracy comparison
+models = [
+    "Decision Tree",
+    "Rule-Based",
+    "Naive Bayes",
+    "Logistic Regression",
+    "KNN",
+    "SVM"
+]
+
+accuracy = [
+    1.0,
+    0.933,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+]
+
+plt.figure(figsize=(10,5))
+plt.bar(models, accuracy)
+
+plt.xlabel("Machine Learning Models")
+plt.ylabel("Accuracy")
+plt.title("Iris Classification Model Performance")
+
+plt.xticks(rotation=45)
+plt.ylim(0,1.1)
+
+plt.tight_layout()
+
+plt.savefig("images/model_accuracy.png")
+
+plt.show()
+
+# ==============================
+# Visualization
+# ==============================
+
+# Accuracy comparison chart
+
+models = [
+    "Decision Tree",
+    "Rule-Based",
+    "Naive Bayes",
+    "Logistic Regression",
+    "KNN",
+    "SVM"
+]
+
+accuracies = [
+    1.0,
+    0.933,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+]
+
+
+plt.figure(figsize=(8,5))
+plt.bar(models, accuracies)
+plt.xticks(rotation=45)
+plt.ylabel("Accuracy")
+plt.title("Model Accuracy Comparison")
+plt.tight_layout()
+
+plt.savefig("images/model_accuracy.png")
+
+plt.close()
+
+
+
+# Confusion matrix for SVM
+
+ConfusionMatrixDisplay.from_predictions(
+    y_test,
+    svm_predictions,
+    display_labels=iris.target_names
+)
+
+plt.title("SVM Confusion Matrix")
+
+plt.savefig("images/confusion_matrix.png")
+
+plt.close()
+
+
+print("Visualization images saved successfully.")
