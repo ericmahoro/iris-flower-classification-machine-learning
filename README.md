@@ -84,6 +84,15 @@ The best-performing models were Decision Tree, Naive Bayes, Logistic Regression,
 - Pandas
 - NumPy
 - Machine Learning Classification Algorithms
+## Visual Results
+
+### Model Accuracy Comparison
+
+![Model Accuracy](images/model_accuracy.png)
+
+### Confusion Matrix
+
+![Confusion Matrix](images/confusion_matrix.png)
 
 ## How to Run
 
