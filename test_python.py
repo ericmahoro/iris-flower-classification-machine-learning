@@ -1,0 +1,1 @@
+print("Python is ready for my machine learning assignment")
